@@ -5,7 +5,10 @@ const initialState = {
   user: {
     processing: false,
     contents: null,
-  }
+  },
+  chart: {
+    data: null,
+  },
 }
 
 const reducer = handleActions({
@@ -28,6 +31,13 @@ const reducer = handleActions({
     user: {
       ...state.user,
       processing: false,
+    },
+  }),
+  [actions.setQiitaChartData]: (state, action) => ({
+    ...state,
+    chart: {
+      ...state.chart,
+      data: action.payload,
     },
   }),
 }, initialState)

@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Spinner from '../others/Spinner'
 import AvatarImageTemp from '../../constants/avatar.jpeg'
+import ProfileCard from '../others/ProfileCard'
 
 const styles = theme => ({
   root: {
@@ -46,6 +47,9 @@ const styles = theme => ({
   divider: {
     marginBottom: theme.spacing.unit * 2,
   },
+  section: {
+    height: '70vh',
+  },
 })
 
 class ProfileScreen extends React.Component {
@@ -62,8 +66,8 @@ class ProfileScreen extends React.Component {
 
     return (
       <div className={classes.root}>
-        <Typography variant='h4' gutterBottom>Profile</Typography>
 
+              
         <div className={classes.divider} />
 
         {(github.user.contents && github.user.contents.avatar_url)?
@@ -87,18 +91,7 @@ class ProfileScreen extends React.Component {
 
         <div className={classes.card}>
           <Grow in={!github.user.processing} {...(!github.user.processing ? { timeout: 2000 } : {})}>
-            <Paper className={classes.paper}>
-              <Typography variant='h6' gutterBottom>Kosaku Kurino</Typography>
-              <Typography variant='body2'>25</Typography>
-              <Typography variant='body2'>フロントエンド/サーバーサイド/Unityエンジニア</Typography>
-
-              <div className={classes.divider} />
-              
-              <Typography variant='subtitle2'>得意言語</Typography>
-              <Typography variant='body2'>
-                node.js/python/C#(Unity)
-              </Typography>
-            </Paper>
+            <ProfileCard />
           </Grow>
         </div>
       </div>
@@ -106,4 +99,4 @@ class ProfileScreen extends React.Component {
   }
 }
 
-export default  withStyles(styles)(ProfileScreen)
+export default withStyles(styles)(ProfileScreen)

@@ -5,7 +5,15 @@ const initialState = {
   user: {
     processing: false,
     contents: null,
-  }
+  },
+  repo: {
+    processing: false,
+    contents: null,
+  },
+  event: {
+    processing: false,
+    contents: null,
+  },
 }
 
 const reducer = handleActions({
@@ -27,6 +35,48 @@ const reducer = handleActions({
     ...state,
     user: {
       ...state.user,
+      processing: false,
+    },
+  }),
+  [actions.githubReposRequest]: (state, action) => ({
+    ...state,
+    repo: {
+      ...state.repo,
+      processing: true,
+    },
+  }),
+  [actions.githubReposRequestSuccess]: (state, action) => ({
+    ...state,
+    repo: {
+      processing: false,
+      contents: action.payload,
+    },
+  }),
+  [actions.githubReposRequestFailure]: (state, action) => ({
+    ...state,
+    repo: {
+      ...state.repo,
+      processing: false,
+    },
+  }),
+  [actions.githubEventsRequest]: (state, action) => ({
+    ...state,
+    event: {
+      ...state.event,
+      processing: true,
+    },
+  }),
+  [actions.githubEventsRequestSuccess]: (state, action) => ({
+    ...state,
+    event: {
+      processing: false,
+      contents: action.payload,
+    },
+  }),
+  [actions.githubEventsRequestFailure]: (state, action) => ({
+    ...state,
+    event: {
+      ...state.event,
       processing: false,
     },
   }),

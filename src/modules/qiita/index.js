@@ -1,21 +1,20 @@
-import axios from 'axios'
+export const createChartData = (data) => {
+  return () => {
+    const tags = []
+    const names = []
 
-const endpoint = 'https://qiita.com/api/v2'
-
-export const getUserItems = () => {
-  return axios({
-    method: 'get',
-    url: endpoint + '/users/kousaku-maron/items',
-    params: {
-      page: 1,
-      per_page: 100,
-    }
-  })
-  .then((result) => {
-    const data = result.data
-    return { result: data }
-  })
-  .catch(error => (
-    { error }
-  ))
+    data.map(item => {
+      item.tags.map(tag => {
+        if(names.indexOf(tag.name) >= 0) {
+          tags[names.indexOf(tag.name)].count++;
+        }
+        else {
+          names.push(tag.name)
+          tags.push({name: tag.name, count: 1})
+        }
+      })
+    })
+    
+    return tags
+  }
 }

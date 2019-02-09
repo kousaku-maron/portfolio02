@@ -1,18 +1,14 @@
 import * as React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grow from '@material-ui/core/Grow'
-import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import QiitaCard from '../others/QiitaCard'
+import Typography from '@material-ui/core/Typography'
 import Spinner from '../others/Spinner'
-import QiitaPieChart from '../others/QiitaPieChart'
+import GithubRepoCard from '../others/GithubRepoCard'
 
 const styles = theme => ({
   root: {
     width: '100%',
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
   },
   item: {
     display: 'flex',
@@ -24,46 +20,40 @@ const styles = theme => ({
   },
 })
 
-class QiitaScreen extends React.Component {
+class GithubScreen extends React.Component {
   componentDidMount() {
-    this.props.getQiitaInfo()
+    this.props.getGithubInfo()
   }
-
+  
   render() {
-    const { qiita, classes } = this.props
+    const { github, classes } = this.props
 
-    if(qiita.user.processing) {
+    if(github.repo.processing) {
       return <Spinner />
     }
 
     return (
       <div className={classes.root}>
-        <Typography variant='h4' gutterBottom>Qiita</Typography>
-
-        <div className={classes.divider} />
-
-        {/* {qiita.chart.data? (
-          <QiitaPieChart data={qiita.chart.data} />
-        ) : null} */}
+        <Typography variant='h4' gutterBottom>Github</Typography>
 
         <div className={classes.divider} />
 
         <Grid container spacing={24}>
-          {(qiita.user.contents && qiita.user.contents.length > 1)?
+          {(github.repo.contents && github.repo.contents.length > 1)?
             (
-              qiita.user.contents.map((content, index) => {
+              github.repo.contents.map((content, index) => {
                 return (
                   <Grow
                     key={content.id}
                     className={classes.item}
-                    in={!qiita.user.processing}
+                    in={!github.repo.processing}
                     timeout={1000}
                   >
                     <Grid item xs={12} sm={6} md={4}>
-                      <QiitaCard
-                        image={'http://cdn.qiita.com/assets/qiita-rectangle-71910ff07b744f263e4a2657e2ffd123.png'}
-                        title={content.title}
-                        url={content.url}
+                      <GithubRepoCard
+                        title={content.full_name}
+                        language={content.language}
+                        url={content.html_url}
                         created_at={content.created_at}
                         updated_at={content.updated_at}
                       />
@@ -80,4 +70,4 @@ class QiitaScreen extends React.Component {
   }
 }
 
-export default  withStyles(styles)(QiitaScreen)
+export default  withStyles(styles)(GithubScreen)
