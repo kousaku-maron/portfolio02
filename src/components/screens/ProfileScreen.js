@@ -1,8 +1,6 @@
 import * as React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grow from '@material-ui/core/Grow'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
 import Spinner from '../others/Spinner'
 import AvatarImageTemp from '../../constants/avatar.jpeg'
 import ProfileCard from '../others/ProfileCard'
@@ -53,10 +51,6 @@ const styles = theme => ({
 })
 
 class ProfileScreen extends React.Component {
-  componentDidMount() {
-    this.props.getProfileInfo()
-  }
-
   render() {
     const { github, classes } = this.props
 

@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import QiitaCard from '../others/QiitaCard'
 import Spinner from '../others/Spinner'
-import QiitaPieChart from '../others/QiitaPieChart'
 
 const styles = theme => ({
   root: {
@@ -39,12 +38,6 @@ class QiitaScreen extends React.Component {
     return (
       <div className={classes.root}>
         <Typography variant='h4' gutterBottom>Qiita</Typography>
-
-        <div className={classes.divider} />
-
-        {/* {qiita.chart.data? (
-          <QiitaPieChart data={qiita.chart.data} />
-        ) : null} */}
 
         <div className={classes.divider} />
 

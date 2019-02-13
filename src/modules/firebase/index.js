@@ -20,3 +20,18 @@ export const getQiitaArticles = () => {
     return { error }
   })
 }
+
+export const getGithubRepositories = () => {
+  return db.collection('github_repositories').get()
+  .then(snapshot => {
+    const result = []
+    snapshot.forEach(doc => {
+      result.push(doc.data())
+    })
+    return { result }
+  })
+  .catch(error => {
+    console.log(error)
+    return { error }
+  })
+}

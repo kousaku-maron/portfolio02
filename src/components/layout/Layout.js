@@ -10,27 +10,32 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 // import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
+// import Divider from '@material-ui/core/Divider'
 import MenuIcon from '@material-ui/icons/Menu'
 
-import { drawerWidth, items } from '../../constants/drawer'
+import { drawerWidth, drawerWidthPc, items } from '../../constants/drawer'
 
 const styles = theme => ({
   root: {
     display: 'flex',
   },
   drawer: {
+    width: drawerWidth,
     [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
+      width: drawerWidthPc,
       flexShrink: 0,
     },
   },
   drawerPaper: {
     width: drawerWidth,
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidthPc
+    }
   },
   appBar: {
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
+      width: `calc(100% - ${drawerWidthPc}px)`,
     },
   },
   grow: {

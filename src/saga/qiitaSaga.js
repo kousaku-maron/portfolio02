@@ -1,5 +1,4 @@
 import { take, call, put } from 'redux-saga/effects'
-import { getUserItems, createChartData } from '../modules/qiita'
 import { getQiitaArticles } from '../modules/firebase'
 
 const data = (type ,payload) => {
@@ -25,19 +24,8 @@ function* getQiitaInfo() {
   }
 }
 
-function* createQiitaChartData() {
-  while (true) {
-    const action = yield take('QIITA_USER_ITEMS_REQUEST_SUCCESS')
-    const chartData = yield call(createChartData(action.payload))
-    if(chartData) {
-      yield put(data('SET_QIITA_CHART_DATA', chartData))
-    }
-  }
-}
-
 const sagas = [
   getQiitaInfo(),
-  // createQiitaChartData(),
 ]
 
 export default sagas

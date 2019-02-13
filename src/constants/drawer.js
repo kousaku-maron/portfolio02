@@ -7,3 +7,4 @@ export const items = [
 ]
 
 export const drawerWidth = 240
+export const drawerWidthPc = 300

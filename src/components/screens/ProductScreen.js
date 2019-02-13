@@ -13,7 +13,7 @@ const styles = theme => ({
 
 class ProductScreen extends React.Component {
   render() {
-    const { qiita, classes } = this.props
+    const { classes } = this.props
 
     return (
       <div className={classes.root}>
