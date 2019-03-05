@@ -5,33 +5,35 @@ import config from './config'
 firebase.initializeApp(config)
 
 const db = firebase.firestore()
+export const qiitaArticlesCollection = db.collection('qiita_articles')
+export const githubReposCollection = db.collection('github_repositories')
 
-export const getQiitaArticles = () => {
-  return db.collection('qiita_articles').get()
-  .then(snapshot => {
-    const result = []
-    snapshot.forEach(doc => {
-      result.push(doc.data())
-    })
-    return { result }
-  })
-  .catch(error => {
-    console.log(error)
-    return { error }
-  })
-}
+// export const getQiitaArticles = () => {
+//   return db.collection('qiita_articles').get()
+//   .then(snapshot => {
+//     const result = []
+//     snapshot.forEach(doc => {
+//       result.push(doc.data())
+//     })
+//     return { result }
+//   })
+//   .catch(error => {
+//     console.log(error)
+//     return { error }
+//   })
+// }
 
-export const getGithubRepositories = () => {
-  return db.collection('github_repositories').get()
-  .then(snapshot => {
-    const result = []
-    snapshot.forEach(doc => {
-      result.push(doc.data())
-    })
-    return { result }
-  })
-  .catch(error => {
-    console.log(error)
-    return { error }
-  })
-}
+// export const getGithubRepositories = () => {
+//   return db.collection('github_repositories').get()
+//   .then(snapshot => {
+//     const result = []
+//     snapshot.forEach(doc => {
+//       result.push(doc.data())
+//     })
+//     return { result }
+//   })
+//   .catch(error => {
+//     console.log(error)
+//     return { error }
+//   })
+// }

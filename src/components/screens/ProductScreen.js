@@ -11,18 +11,16 @@ const styles = theme => ({
   },
 })
 
-class ProductScreen extends React.Component {
-  render() {
-    const { classes } = this.props
+const ProductScreen = props => {
+  const { classes } = props
 
-    return (
-      <div className={classes.root}>
-        <Typography variant='h4' gutterBottom>Product</Typography>
-        <div className={classes.divider} />
-        <Typography>hello world</Typography>
-      </div>
-    )
-  }
+  return (
+    <div className={classes.root}>
+      <Typography variant='h4' gutterBottom>Product</Typography>
+      <div className={classes.divider} />
+      <Typography>hello world</Typography>
+    </div>
+  )
 }
 
 export default  withStyles(styles)(ProductScreen)

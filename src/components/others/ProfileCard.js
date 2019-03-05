@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography'
 const styles = theme => ({
   card: {
     width: 250,
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    // marginLeft: 'auto',
+    // marginRight: 'auto',
     [theme.breakpoints.up('sm')]: {
       width: 500,
     }

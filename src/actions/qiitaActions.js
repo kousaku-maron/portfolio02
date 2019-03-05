@@ -2,12 +2,8 @@ import { createActions } from 'redux-actions'
 
 const actions = createActions(
   {
-    QIITA_USER_ITEMS_REQUEST_SUCCESS: (args) => (args),
-    QIITA_USER_ITEMS_REQUEST_FAILURE: (args) => (args),
-    SET_QIITA_CHART_DATA: (args) => (args),
+    SET_QIITA_ARTICLES: (args) => (args),
   },
-  'QIITA_USER_ITEMS_REQUEST',
-  'GET_QIITA_INFO',
 )
 
 export default actions

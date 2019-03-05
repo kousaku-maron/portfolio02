@@ -1,13 +1,18 @@
 import * as React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Grow from '@material-ui/core/Grow'
-import Spinner from '../others/Spinner'
 import AvatarImageTemp from '../../constants/avatar.jpeg'
 import ProfileCard from '../others/ProfileCard'
 
 const styles = theme => ({
   root: {
     width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  flex: {
+    display: 'flex',
+    flexGrow: 1,
   },
   avatar: {
     height: 200,
@@ -29,10 +34,6 @@ const styles = theme => ({
       borderRadius: 150,
     }
   },
-  card: {
-    display: 'flex',
-    flexGrow: 1,
-  },
   paper: {
     width: 300,
     padding: theme.spacing.unit * 2,
@@ -50,47 +51,29 @@ const styles = theme => ({
   },
 })
 
-class ProfileScreen extends React.Component {
-  render() {
-    const { github, classes } = this.props
+const ProfileScreen = props => {
+  const { classes } = props
 
-    if(github.user.processing) {
-      return <Spinner />
-    }
+  return (
+    <div className={classes.root}>
 
-    return (
-      <div className={classes.root}>
-
-              
-        <div className={classes.divider} />
-
-        {(github.user.contents && github.user.contents.avatar_url)?
-          (
-            <div className={classes.avatar}>
-              <Grow in={!github.user.processing} timeout={1000}>
-                <img className={classes.avatarImg} src={github.user.contents.avatar_url} alt='github avatar' />
-              </Grow>
-            </div>
-          )
-          : (
-            <div className={classes.avatar}>
-              <Grow in={!github.user.processing} timeout={1000}>
-                <img className={classes.avatarImg} src={AvatarImageTemp} alt='github avatar' />
-              </Grow>
-            </div>
-          )
-        }
-
-        <div className={classes.divider} />
-
-        <div className={classes.card}>
-          <Grow in={!github.user.processing} {...(!github.user.processing ? { timeout: 2000 } : {})}>
-            <ProfileCard />
-          </Grow>
-        </div>
+      <div className={classes.divider} />  
+      
+      <div className={classes.avatar}>
+        <Grow in={true} timeout={1000}>
+          <img className={classes.avatarImg} src={AvatarImageTemp} alt='github avatar' />
+        </Grow>
       </div>
-    )
-  }
+
+      <div className={classes.divider} />
+
+      <div className={classes.flex}>
+        <Grow in={true} timeout={2000}>
+          <ProfileCard />
+        </Grow>
+      </div>
+    </div>
+  )
 }
 
 export default withStyles(styles)(ProfileScreen)

@@ -2,44 +2,21 @@ import { handleActions } from 'redux-actions'
 import actions from '../actions/qiitaActions'
 
 const initialState = {
-  user: {
+  articles: {
     processing: false,
     contents: null,
-  },
-  chart: {
-    data: null,
   },
 }
 
 const reducer = handleActions({
-  [actions.qiitaUserItemsRequest]: (state, action) => ({
+  [actions.setQiitaArticles]: (state, action) => ({
     ...state,
-    user: {
-      ...state.user,
-      processing: true,
-    },
-  }),
-  [actions.qiitaUserItemsRequestSuccess]: (state, action) => ({
-    ...state,
-    user: {
-      processing: false,
+    articles: {
+      ...state.articles,
       contents: action.payload,
-    },
-  }),
-  [actions.qiitaUserItemsRequestFailure]: (state, action) => ({
-    ...state,
-    user: {
-      ...state.user,
       processing: false,
     },
-  }),
-  [actions.setQiitaChartData]: (state, action) => ({
-    ...state,
-    chart: {
-      ...state.chart,
-      data: action.payload,
-    },
-  }),
+  })
 }, initialState)
 
 export default reducer

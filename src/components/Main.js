@@ -26,14 +26,14 @@ const Main = (props) => {
       }
       {props.drawer.menu === 'qiita'?
         <QiitaScreen
-          getQiitaInfo={props.getQiitaInfo}
+          handleSetQiitaArticles={props.handleSetQiitaArticles}
           qiita={props.qiita}
         />
         : null
       }
       {props.drawer.menu === 'github'?
         <GithubScreen
-          getGithubInfo={props.getGithubInfo}
+          handleSetGithubRepos={props.handleSetGithubRepos}
           github={props.github}
         /> 
         : null
