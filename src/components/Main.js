@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Layout from './layout/Layout'
+import WelcomeScreen from './screens/WelcomeScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import QiitaScreen from './screens/QiitaScreen'
 import GithubScreen from './screens/GithubScreen'
@@ -13,6 +14,11 @@ const Main = (props) => {
       handleDrawerToggle={props.handleDrawerToggle}
       handleMenuChange={props.handleMenuChange}
     >
+      {props.drawer.menu === 'welcome'?
+        <WelcomeScreen/>
+        : null
+      }
+
       {props.drawer.menu === 'profile'? 
         <ProfileScreen
           getProfileInfo={props.getProfileInfo}

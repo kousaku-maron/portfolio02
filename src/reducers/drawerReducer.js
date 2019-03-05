@@ -5,7 +5,7 @@ import { items } from '../constants/drawer'
 
 const initialState = { 
   open: false,
-  menu: items[0].id,
+  menu: 'welcome',
 }
 
 const reducer = handleActions({
