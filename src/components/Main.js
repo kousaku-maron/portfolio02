@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Layout from './layout/Layout'
+import Layout from './layout/PopLayout'
 import WelcomeScreen from './screens/WelcomeScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import QiitaScreen from './screens/QiitaScreen'
@@ -10,12 +10,10 @@ import Contacts from './screens/Contacts'
 const Main = (props) => {
   return (
     <Layout
-      drawerOpen={props.drawer.open}
-      handleDrawerToggle={props.handleDrawerToggle}
       handleMenuChange={props.handleMenuChange}
     >
       {props.drawer.menu === 'welcome'?
-        <WelcomeScreen/>
+        <WelcomeScreen />
         : null
       }
 

@@ -1,26 +1,29 @@
 import * as React from 'react'
-import { withStyles } from '@material-ui/core/styles'
+import styles from 'styled-components'
+import WelcomeDonChan from '../lottie/WelcomeDonChan'
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  divider: {
-    marginBottom: theme.spacing.unit * 2,
-  },
-})
-
-const WelcomeScreen = props => {
-  const { classes } = props
-
+const WelcomeScreen = ({ handleMenuChange }) => {
   return (
-    <div className={classes.root}>
-      <p>aaa</p>
-      <p>bbbb</p>
-    </div>
+    <Root>
+      <Donchan>
+        <WelcomeDonChan width={450} height={450}/>
+      </Donchan>
+      {/* <HeaderButton>
+        <span>hello world</span>
+      </HeaderButton> */}
+    </Root>
   )
 }
 
-export default withStyles(styles)(WelcomeScreen)
+const Root = styles.div`
+  width: 100vw
+  height: 100vh
+`
+
+const Donchan = styles.div`
+  position: fixed
+  bottom: 12px
+  left: 12px
+`
+
+export default WelcomeScreen
