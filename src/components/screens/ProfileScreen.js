@@ -10,9 +10,11 @@ const styles = theme => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  flex: {
+  card: {
     display: 'flex',
     flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   avatar: {
     height: 200,
@@ -32,15 +34,6 @@ const styles = theme => ({
       width: 300,
       height: 300,
       borderRadius: 150,
-    }
-  },
-  paper: {
-    width: 300,
-    padding: theme.spacing.unit * 2,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    [theme.breakpoints.up('sm')]: {
-      width: 500,
     }
   },
   divider: {
@@ -67,7 +60,7 @@ const ProfileScreen = props => {
 
       <div className={classes.divider} />
 
-      <div className={classes.flex}>
+      <div className={classes.card}>
         <Grow in={true} timeout={2000}>
           <ProfileCard />
         </Grow>
