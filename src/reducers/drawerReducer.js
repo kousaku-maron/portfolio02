@@ -4,14 +4,14 @@ import actions from '../actions/drawerActions'
 import { items } from '../constants/drawer'
 
 const initialState = { 
-  open: false,
+  showMenu: false,
   menu: 'welcome',
 }
 
 const reducer = handleActions({
-  [actions.drawerToggle]: (state, action) => ({
+  [actions.showMenuToggle]: (state, action) => ({
     ...state,
-    open: !state.open,
+    showMenu: !state.showMenu,
   }),
   [actions.menuChange]: (state, action) => ({
     ...state,

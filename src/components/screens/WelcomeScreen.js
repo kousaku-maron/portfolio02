@@ -1,16 +1,14 @@
 import * as React from 'react'
 import styles from 'styled-components'
 import WelcomeDonChan from '../lottie/WelcomeDonChan'
+import { Button } from '@material-ui/core';
 
-const WelcomeScreen = ({ handleMenuChange }) => {
+const WelcomeScreen = ({ handleMenuChange, handleShowMenuToggle }) => {
   return (
     <Root>
       <Donchan>
         <WelcomeDonChan width={450} height={450}/>
       </Donchan>
-      {/* <HeaderButton>
-        <span>hello world</span>
-      </HeaderButton> */}
     </Root>
   )
 }

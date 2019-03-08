@@ -4,7 +4,7 @@ const actions = createActions(
   {
     MENU_CHANGE: (args) => (args),
   },
-  'DRAWER_TOGGLE',
+  'SHOW_MENU_TOGGLE',
 )
 
 export default actions

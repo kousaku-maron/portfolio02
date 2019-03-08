@@ -6,7 +6,7 @@ import Main from '../components/Main'
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleDrawerToggle: () => dispatch(drawerActions.drawerToggle()),
+    handleShowMenuToggle: () => dispatch(drawerActions.showMenuToggle()),
     handleMenuChange: (label) => dispatch(drawerActions.menuChange(label)),
     handleSetQiitaArticles: (articles) => dispatch(qiitaActions.setQiitaArticles(articles)),
     handleSetGithubRepos: (repos) => dispatch(githubActions.setGithubRepos(repos)),

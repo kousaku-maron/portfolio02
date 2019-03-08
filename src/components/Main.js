@@ -11,9 +11,12 @@ const Main = (props) => {
   return (
     <Layout
       handleMenuChange={props.handleMenuChange}
+      showMenu={props.drawer.showMenu}
     >
       {props.drawer.menu === 'welcome'?
-        <WelcomeScreen />
+        <WelcomeScreen
+          handleShowMenuToggle={props.handleShowMenuToggle}
+        />
         : null
       }
 

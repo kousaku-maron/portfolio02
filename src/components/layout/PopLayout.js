@@ -1,9 +1,9 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-const Layout = ({ children, handleMenuChange }) => (
+const Layout = ({ children, showMenu, handleMenuChange }) => (
   <div>
-    <Header>
+    <Header style={{ display: showMenu? 'flex' : 'none' }}>
       <Menu onClick={() => handleMenuChange('profile')}>
         <span>Profile</span>
       </Menu>
