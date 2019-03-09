@@ -1,20 +1,15 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import colors from '../../constants/colors'
 
 const Layout = ({ children, showMenu, handleMenuChange }) => (
   <div>
     <Header style={{ display: showMenu? 'flex' : 'none' }}>
       <Menu onClick={() => handleMenuChange('profile')}>
-        <span>Profile</span>
+        <span>彼の能力を知る</span>
       </Menu>
-      <Menu onClick={() => handleMenuChange('qiita')}>
-        <span>Qiita</span>
-      </Menu>
-      <Menu onClick={() => handleMenuChange('github')}>
-        <span>Github</span>
-      </Menu>
-      <Menu onClick={() => handleMenuChange('contacts')}>
-        <span>Contacts</span>
+      <Menu onClick={() => handleMenuChange('price')}>
+        <span>彼の単価を知る</span>
       </Menu>
     </Header>
     {children}
@@ -38,10 +33,11 @@ const Menu = styled.div`
   margin-left: 10px
   margin-right: 10px
   border-radius: 20px
-  background-color: black
-  color: white
+  background-color: ${colors.tertiary.main}
+  color: ${colors.quaternary.main}
+  cursor: pointer
   &:hover {
-    background-color: gray
+    opacity: 0.7
   }
 `
 
