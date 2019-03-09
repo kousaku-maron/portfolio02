@@ -2,10 +2,8 @@ import * as React from 'react'
 import Layout from './layout/PopLayout'
 import WelcomeScreen from './screens/WelcomeScreen'
 import ProfileScreen from './screens/ProfileScreen'
-import QiitaScreen from './screens/QiitaScreen'
-import GithubScreen from './screens/GithubScreen'
-import ProductScreen from './screens/ProductScreen'
-import Contacts from './screens/Contacts'
+import PriceScreen from './screens/PriceScreen'
+import ContactScreen from './screens/ContactScreen'
 
 const Main = (props) => {
   return (
@@ -16,36 +14,24 @@ const Main = (props) => {
       {props.drawer.menu === 'welcome'?
         <WelcomeScreen
           handleShowMenuToggle={props.handleShowMenuToggle}
+          handleMenuChange={props.handleMenuChange}
         />
         : null
       }
 
       {props.drawer.menu === 'profile'? 
-        <ProfileScreen
-          getProfileInfo={props.getProfileInfo}
-          github={props.github}
-        /> 
+        <ProfileScreen/> 
         : null
       }
-      {props.drawer.menu === 'product'?
-        <ProductScreen/>
+
+      {props.drawer.menu === 'price'?
+        <PriceScreen/>
         : null
       }
-      {props.drawer.menu === 'qiita'?
-        <QiitaScreen
-          handleSetQiitaArticles={props.handleSetQiitaArticles}
-          qiita={props.qiita}
-        />
+      {props.drawer.menu === 'contacts'?
+        <ContactScreen />
         : null
       }
-      {props.drawer.menu === 'github'?
-        <GithubScreen
-          handleSetGithubRepos={props.handleSetGithubRepos}
-          github={props.github}
-        /> 
-        : null
-      }
-      {props.drawer.menu === 'contacts'? <Contacts /> : null}
     </Layout>
   )
 }
