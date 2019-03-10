@@ -13,7 +13,7 @@ const WelcomeScreen = ({ handleMenuChange, handleShowMenuToggle }) => {
       </Donchan>
       <Skill>
         <FluidButton
-          outerColor={colors.priamry.main}
+          outer={colors.priamry.main}
           onClick={() => {
             handleShowMenuToggle(true)
             handleMenuChange('profile')
@@ -24,7 +24,7 @@ const WelcomeScreen = ({ handleMenuChange, handleShowMenuToggle }) => {
       </Skill>
       <Price>
         <FluidButton
-          outerColor={colors.priamry.main}
+          outer={colors.priamry.main}
         >
           彼の単価を知る
         </FluidButton>
