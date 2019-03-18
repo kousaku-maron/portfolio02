@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 // import { Transition } from 'react-transition-group'
-import colors from '../../constants/colors'
-import FluidButton from '../button/FluidButton'
+// import colors from '../../constants/colors'
+import PinkFluidButton from '../button/PinkFluidButton'
+import PurpleFluidButton from '../button/PurpleFluidButton'
 
 const Layout = ({ children, menu, handleMenuChange }) => {
   const [ welcomeElement, setWelcomeElement ] = useState(null)
@@ -13,10 +14,10 @@ const Layout = ({ children, menu, handleMenuChange }) => {
   // const [ circlePos, setCirclePos ] = useState({ top: 0, right: 0, bottom: 0, left: 0 })
   // const [ circleSize, setCircleSize ] = useState({ width: 0, height: 0 })
   
-  const [ animate, setAnimate ] = useState(false)
-  useEffect(() => {
-    setAnimate(true)
-  }, [menu])
+  // const [ animate, setAnimate ] = useState(false)
+  // useEffect(() => {
+  //   setAnimate(true)
+  // }, [menu])
 
   // const switching = element => {
   //   const { top, right, bottom, left, width, height } = element.getBoundingClientRect()
@@ -28,51 +29,33 @@ const Layout = ({ children, menu, handleMenuChange }) => {
     <div>
       {children}
       <Welcome ref={(el) => setWelcomeElement(el)}>
-        <FluidButton
-          outer={colors.priamry.main}
-          size={100}
-          onClick={() => {
-            // switching(welcomeElement)
-            handleMenuChange('welcome')
-          }}
+        <PurpleFluidButton
+          onClick={() => handleMenuChange('welcome')}
         >
           ホームに戻る
-        </FluidButton>
+        </PurpleFluidButton>
       </Welcome>
-      <Skill ref={(el) => setSkillElement(el)}>
-        <FluidButton
-          outer={colors.priamry.main}
-          size={100}
-          onClick={() => {
-            // switching(skillElement)
-            handleMenuChange('profile')
-          }}
+      <Profile ref={(el) => setSkillElement(el)}>
+        <PurpleFluidButton
+          onClick={() => handleMenuChange('profile')}
         >
           彼の能力を知る
-        </FluidButton>
-      </Skill>
+        </PurpleFluidButton>
+      </Profile>
       <Price ref={(el) => setPriceElement(el)}>
-        <FluidButton
-          outer={colors.priamry.main}
-          size={100}
-          onClick={() => {
-            // switching(priceElement)
-            handleMenuChange('price')
-          }}
+        <PurpleFluidButton
+          onClick={() => handleMenuChange('price')}
         >
           彼の単価を知る
-        </FluidButton>
+        </PurpleFluidButton>
       </Price>
       <Apo ref={(el) => setApoElement(el)}>
-        <FluidButton
-          size={120}
-          onClick={() => {
-            // switching(apoElement)
-            handleMenuChange('contact')
-          }}
+        <PinkFluidButton
+          size={200}
+          onClick={() => handleMenuChange('contacts')}
         >
-          コンタクトをとる<br/>(準備中)
-        </FluidButton>
+          コンタクトをとる
+        </PinkFluidButton>
       </Apo>
 
       {/* <Transition in={animate} timeout={500}>
@@ -94,39 +77,39 @@ const Apo = styled.div`
 
 const Price = styled.div`
   position: fixed
-  right: 198px
+  right: 258px
   bottom: 48px
 `
 
-const Skill = styled.div`
+const Profile = styled.div`
   position: fixed
-  right: 328px
+  right: 398px
   bottom: 48px
 `
 
 const Welcome = styled.div`
   position: fixed
-  right: 458px
+  right: 538px
   bottom: 48px
 `
 
-const scaleUp = keyframes`
-  from {
-    transform: scale(1)
-  }
-  to {
-    transform: scale(10)
-  }
-`
+// const scaleUp = keyframes`
+//   from {
+//     transform: scale(1)
+//   }
+//   to {
+//     transform: scale(10)
+//   }
+// `
 
-const Stop = keyframes`
-from {
-  transform: scale(0)
-}
-to {
-  transform: scale(0)
-}
-`
+// const Stop = keyframes`
+// from {
+//   transform: scale(0)
+// }
+// to {
+//   transform: scale(0)
+// }
+// `
 
 // const Circle = styled.div`
 //   position: absolute
