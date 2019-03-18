@@ -1,72 +1,137 @@
 import * as React from 'react'
-import { withStyles } from '@material-ui/core/styles'
-import Grow from '@material-ui/core/Grow'
+import styled from 'styled-components'
+import colors from '../../constants/colors'
 import AvatarImageTemp from '../../constants/avatar.jpeg'
-import ProfileCard from '../others/ProfileCard'
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  card: {
-    display: 'flex',
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  avatar: {
-    height: 200,
-    display: 'flex',
-    flexGrow: 1,
-    [theme.breakpoints.up('sm')]: {
-      height: 300,
-    }
-  },
-  avatarImg: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    [theme.breakpoints.up('sm')]: {
-      width: 300,
-      height: 300,
-      borderRadius: 150,
-    }
-  },
-  divider: {
-    marginBottom: theme.spacing.unit * 2,
-  },
-  section: {
-    height: '70vh',
-  },
-})
+import FluidButton from '../button/FluidButton'
 
 const ProfileScreen = props => {
-  const { classes } = props
-
   return (
-    <div className={classes.root}>
-
-      <div className={classes.divider} />  
-      
-      <div className={classes.avatar}>
-        <Grow in={true} timeout={1000}>
-          <img className={classes.avatarImg} src={AvatarImageTemp} alt='github avatar' />
+    <Root>
+      <Section>
+        <Grow>
+          <Thumbnail
+            src={AvatarImageTemp}
+            alt='avatar'
+          />
         </Grow>
-      </div>
-
-      <div className={classes.divider} />
-
-      <div className={classes.card}>
-        <Grow in={true} timeout={2000}>
-          <ProfileCard />
+        <Grow>
+          <h1>Kosaku Kurino</h1>
         </Grow>
-      </div>
-    </div>
+        <Grow>
+          <BasicInfo>
+            <p>25歳</p>
+            <p>エンジニア歴3年</p>
+            <p>フロントエンドエンジニア/Unityエンジニア</p>
+            <p>趣味 ボルダリング/太鼓の達人</p>
+            {/* <p><Link target='_blank' href='https://qiita.com/kousaku-maron'>Qiita</Link></p>
+            <p><Link target='_blank' href='https://github.com/kousaku-maron?tab=repositories'>Github</Link></p> */}
+          </BasicInfo>
+        </Grow>
+      </Section>
+      <Section>
+        <Grow>
+          <h1>使える言語</h1>
+        </Grow>
+        <Grow>
+          <LangBox>
+            <p>Nodejs</p>
+          </LangBox>
+          <LangBox>
+            <p>C# for Unity</p>
+          </LangBox>
+          <LangBox>
+            <p>Python</p>
+          </LangBox>
+        </Grow>
+      </Section>
+      <Section>
+        <Grow>
+          <h1>使えるクラウドサービス</h1>
+        </Grow>
+        <Grow>
+          <LangBox>
+            <p>AWS</p>
+          </LangBox>
+          <LangBox>
+            <p>Azure</p>
+          </LangBox>
+          <LangBox>
+            <p>GCP</p>
+          </LangBox>
+          <LangBox>
+            <p>Firebase</p>
+          </LangBox>
+        </Grow>
+      </Section>
+      <Section>
+        <Grow>
+          <h1>経験してきたこと</h1>
+        </Grow>
+        <Grow>準備中・・・</Grow>
+      </Section>
+      <Section>
+        <Grow>
+          <h1>作品</h1>
+        </Grow>
+        <Grow>準備中・・・</Grow>
+      </Section>>
+    </Root>
   )
 }
 
-export default withStyles(styles)(ProfileScreen)
+const Root = styled.div`
+  width: 100%
+  padding: 24px
+`
+
+const Section = styled.div`
+  display: flex
+  flex-direction: column
+  margin-bottom: 48px
+`
+
+const Grow = styled.div`
+  display: flex
+  flex-grow: 1
+  justify-content: center
+  align-items: center
+`
+
+const Thumbnail = styled.img`
+  width: 300px
+  height: 300px
+  border-radius: 150px
+`
+
+const BasicInfo = styled.div`
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+`
+
+// const Link = styled.a`
+//   decolation: none
+// `
+
+const LangBox = styled.div`
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: 200px
+  height: 100px
+  border-radius: 50px
+  border: 1px solid ${colors.priamry.main}
+  margin: 12px
+`
+
+const ExpBox = styled.div`
+  flex-grow: 1
+  width: 100%
+  min-height: 100px
+  border-radius: 10px
+  border: 1px solid ${colors.priamry.main}
+`
+
+export default ProfileScreen

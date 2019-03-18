@@ -14,7 +14,7 @@ const defaultOptions = {
 const WelcomeDonChan = ({ width, height }) => {
   const [ play, setPlay ] = useState(false)
   useEffect(() => {
-    setInterval(() => setPlay(true), 1000)
+    setTimeout(() => setPlay(true), 1000)
   }, [])
 
   return (

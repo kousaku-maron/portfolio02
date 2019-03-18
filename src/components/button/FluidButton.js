@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import colors from '../../constants/colors'
 
-const FluidButton = ({ onClick, inner, outer, text, children }) => {
+const FluidButton = ({ onClick, inner, outer, text, size, children }) => {
   const [ hover, setHover ] = useState(false)
 
   const scaleUp = keyframes`
@@ -19,8 +19,8 @@ const FluidButton = ({ onClick, inner, outer, text, children }) => {
     display: flex
     justify-content: center
     align-items: center
-    width: 210px
-    height: 210px
+    width: ${size? size + 10 : 210}px
+    height: ${size? size + 10 : 210}px
     disbled: true
   `
 
@@ -28,10 +28,10 @@ const FluidButton = ({ onClick, inner, outer, text, children }) => {
     position: absolute
     top: 0
     left: 0
-    width: 210px
-    height: 210px
+    width: ${size? size + 10 : 210}px
+    height: ${size? size + 10 : 210}px
     background: ${outer || colors.secondary.main}
-    border-radius: 105px
+    border-radius: ${size? size/2 + 5 : 105}105px
     animation-name: ${scaleUp}
     animation-duration: 0.5s
     animation-timing-function: ease-in
@@ -45,10 +45,11 @@ const FluidButton = ({ onClick, inner, outer, text, children }) => {
     justify-content: center
     align-items: center
     text-align: center
-    width: 200px
-    height: 200px
-    border-radius: 100px
+    width: ${size || 200}px
+    height: ${size || 200}px
+    border-radius: ${size? size/2 : 100}px
     background: ${inner || colors.tertiary.main}
+    font-size: ${size < 200? 12 : 24}px
     color: ${text || colors.quaternary.main}
     cursor: pointer
 

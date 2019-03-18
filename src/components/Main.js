@@ -8,8 +8,8 @@ import ContactScreen from './screens/ContactScreen'
 const Main = (props) => {
   return (
     <Layout
+      menu={props.drawer.menu}
       handleMenuChange={props.handleMenuChange}
-      showMenu={props.drawer.showMenu}
     >
       {props.drawer.menu === 'welcome'?
         <WelcomeScreen
