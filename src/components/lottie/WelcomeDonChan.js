@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
-import Lottie from "react-lottie"
-import * as animationData from "../../animations/welcome_data.json"
+import React, { useEffect, useState } from 'react'
+import Lottie from 'react-lottie'
+import * as animationData from '../../assets/animations/welcome_data.json'
 
 const defaultOptions = {
   loop: false,
