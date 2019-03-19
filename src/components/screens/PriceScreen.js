@@ -14,7 +14,7 @@ const styles = theme => ({
 const Contacts = ({ classes }) => {
   return (
     <div className={classes.root}>
-      <Typography variant='h4' gutterBottom>Contacts</Typography>
+      <Typography variant='h4' gutterBottom>Price</Typography>
     </div>
   )
 }
